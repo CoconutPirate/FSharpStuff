@@ -1,4 +1,5 @@
 ﻿namespace FSharpStuff
 
-type Class1() = 
-    member this.X = "F#"
+module TwoPointOne =
+    let checkForDivision x =
+        x % 2 = 0 && x % 3 = 0 && x % 5 <> 0
