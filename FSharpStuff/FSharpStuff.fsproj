@@ -54,7 +54,7 @@
     <Reference Include="System.Numerics" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Library1.fs" />
+    <Compile Include="ChapterTwo.fs" />
     <None Include="Script.fsx" />
     <None Include="packages.config" />
     <Compile Include="FsUnitSample.fs" />

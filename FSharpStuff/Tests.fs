@@ -8,6 +8,7 @@ open FSharpStuff.TwoPointThree
 open FSharpStuff.TwoPointSix
 open FSharpStuff.TwoPointFive
 open FSharpStuff.TwoPointFour
+open FSharpStuff.TwoPointSeven
 
     [<TestFixture>]
     type ``Excercise 2point1`` () =
@@ -95,3 +96,33 @@ open FSharpStuff.TwoPointFour
            ``should get 3 for aaaaa string, char a and 2`` () =
                occurenceCounter.occFromIth "aaaaa" 2 'a'
                |> should equal 3
+
+
+    [<TestFixture>]
+    type `` Excercise 2point7 `` () =
+        let primer = new Primer()
+
+        [<Test>] member test.
+            `` test should return true for 1, 4 and 5 `` () =
+                primer.test 2 4 5
+                |> should be True
+
+        [<Test>] member test.
+            `` test should return false for 1, 4 and 6 `` () =
+                primer.test 2 4 6
+                |> should be False
+
+        [<Test>] member test.
+            `` prime should return true for prime number `` () =
+                primer.prime 19
+                |> should be True
+
+        [<Test>] member test.
+            `` prime should return false for not prime number `` () =
+                primer.prime 20
+                |> should be False
+
+        [<Test>] member test.
+            `` nextPrime should give next prime number to one provided `` () =
+                primer.nextPrime 20
+                |> should equal 23

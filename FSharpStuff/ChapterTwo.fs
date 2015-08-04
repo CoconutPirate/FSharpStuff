@@ -45,3 +45,25 @@ module TwoPointSix =
     type notDivisionChecker () =
         member this.notDivisible d n =
             n % d <> 0
+
+
+module TwoPointSeven =
+    open TwoPointSix
+
+    let checker = new notDivisionChecker ()
+
+    type Primer () =
+        member this.test a b c =
+            match a with
+            |  x when x = b -> checker.notDivisible b c
+            | _ -> (this.test (a+1) b c) && (checker.notDivisible a c)
+                
+        member this.prime n =
+            let finish = (int)(sqrt ((float) n))
+            this.test 2 finish n
+
+        member this.nextPrime n =
+            let check = this.prime n
+            match check with
+            | false -> this.nextPrime (n+1)
+            | true -> n
