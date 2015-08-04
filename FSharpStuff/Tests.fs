@@ -2,10 +2,14 @@
 
 open NUnit.Framework
 open FsUnit
+open FSharpStuff.TwoPointOne
+open FSharpStuff.TwoPointTwo
+open FSharpStuff.TwoPointThree
+open FSharpStuff.TwoPointSix
 
     [<TestFixture>]
     type ``Excercise 2point1`` () =
-        let divisor = new FSharpStuff.TwoPointOne.Divisor()
+        let divisor = new Divisor()
 
         [<Test>] member test.
             ``24 should give true as divisible by 2 and 3`` () =
@@ -30,7 +34,7 @@ open FsUnit
 
     [<TestFixture>]
     type ``Excercise 2point2`` () =
-        let stringifator = new FSharpStuff.TwoPointTwo.Stringifator()
+        let stringifator = new Stringifator()
 
         [<Test>] member test.
             ``pow 4 1 should return 4`` () =
@@ -46,7 +50,7 @@ open FsUnit
 
     [<TestFixture>]
     type ``Excercise 2point3`` () =
-        let checker = new FSharpStuff.TwoPointThree.StringCharChecker()
+        let checker = new StringCharChecker()
 
         [<Test>] member test.
             ``should be true when char is ith char of the string`` () =
@@ -57,3 +61,17 @@ open FsUnit
             ``should be false when char is not ith char of the string`` () =
                 checker.isIthChar "abc" 1 'z'
                 |> should be False
+
+    [<TestFixture>]
+    type ``Excercise 2point6`` () =
+        let checker = new notDivisionChecker()
+
+        [<Test>] member test.
+            ``divisible is false`` () =
+                checker.notDivisible 3 9
+                |> should be False
+
+        [<Test>] member test.
+            ``not divisible is true`` () =
+                checker.notDivisible 2 5
+                |> should be True
