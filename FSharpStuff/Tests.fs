@@ -6,6 +6,8 @@ open FSharpStuff.TwoPointOne
 open FSharpStuff.TwoPointTwo
 open FSharpStuff.TwoPointThree
 open FSharpStuff.TwoPointSix
+open FSharpStuff.TwoPointFive
+open FSharpStuff.TwoPointFour
 
     [<TestFixture>]
     type ``Excercise 2point1`` () =
@@ -75,3 +77,21 @@ open FSharpStuff.TwoPointSix
             ``not divisible is true`` () =
                 checker.notDivisible 2 5
                 |> should be True
+
+    [<TestFixture>]
+    type `` Excercise 2point5`` () =
+        let occurenceCounter = new OccurenceFinder()
+
+        [<Test>] member test.
+           ``should get 5 for aaaaa string and a char`` () =
+               occurenceCounter.occInString "aaaaa" 'a'
+               |> should equal 5
+
+    [<TestFixture>]
+    type `` Excercise 2point4`` () =
+        let occurenceCounter = new ithOccCounter()
+
+        [<Test>] member test.
+           ``should get 3 for aaaaa string, char a and 2`` () =
+               occurenceCounter.occFromIth "aaaaa" 2 'a'
+               |> should equal 3

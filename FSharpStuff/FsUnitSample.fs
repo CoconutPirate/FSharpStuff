@@ -16,9 +16,11 @@ type ``Given a LightBulb that has had its state set to true`` ()=
 
    [<Test>] member test.
     ``when I ask whether it is On it answers true.`` ()=
-           lightBulb.On |> should be True
+           lightBulb.On 
+           |> should be True
 
    [<Test>] member test.
     ``when I convert it to a string it becomes "On".`` ()=
-           string lightBulb |> should equal "On"
+           string lightBulb 
+           |> should equal "On"
 

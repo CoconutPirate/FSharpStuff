@@ -18,6 +18,19 @@ module TwoPointThree =
         member this.isIthChar (s:string) (i:int) (c:char) =
             s.Chars i = c
 
+module TwoPointFive =
+    open System.Linq
+    type OccurenceFinder () =
+        member this.occInString (s: string) (c:char) =
+            s.Count(fun x -> x = c) 
+
+module TwoPointFour =
+    open TwoPointFive
+    let occCounter = new OccurenceFinder ()
+    type ithOccCounter () =
+        member this.occFromIth (s: string) (i: int) (c: char) =
+            occCounter.occInString (s.Substring(i)) c
+
 //todo:
 //module TwoPointEight =
 //    type Pascal () =
