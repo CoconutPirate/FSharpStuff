@@ -1,44 +1,39 @@
 ﻿namespace FSharpStuff
 
 module TwoPointOne =
-    type Divisor () =
-        member this.checkForDivision x =
-            (x % 2 = 0 || x % 3 = 0) && x % 5 <> 0
 
+    let checkForDivision x =
+        (x % 2 = 0 || x % 3 = 0) && x % 5 <> 0
+    
 module TwoPointTwo =
-    type Stringifator () =
-        member this.power s n =
-            match n with
-            | 1 -> sprintf "%s" s
-            | _ -> (sprintf "%s * " s) + (this.power s (n-1))
+    let rec power s n =
+        match n with
+        | 1 -> sprintf "%s" s
+        | _ -> (sprintf "%s * " s) + (power s (n-1))
             
 
 module TwoPointThree =
-    type StringCharChecker () =
-        member this.isIthChar (s:string) (i:int) (c:char) =
-            s.Chars i = c
+    let isIthChar (s:string) (i:int) (c:char) =
+        s.Chars i = c
 
 module TwoPointFive =
     open System.Linq
-    type OccurenceFinder () =
-        member this.occInString (s: string) (c:char) =
+    let occInString (s: string) (c:char) =
             s.Count(fun x -> x = c) 
 
 module TwoPointFour =
     open TwoPointFive
-    let occCounter = new OccurenceFinder ()
-    type ithOccCounter () =
-        member this.occFromIth (s: string) (i: int) (c: char) =
-            occCounter.occInString (s.Substring(i)) c
+    
+    let occFromIth (s: string) (i: int) (c: char) =
+            occInString (s.Substring(i)) c
 
-//todo:
-//module TwoPointEight =
-//    type Pascal () =
-//        member this.GetBinomial n m =
-//            match (n,m) with
-//            | (0,_) -> 0 
-//            | (_,0) -> 1
-//            | _ -> (this.GetBinomial (n-1) (m-1)) + (this.GetBinomial (n-1) (m))
+module TwoPointEight =
+    type Pascal () =
+        member this.GetBinomial n m =
+            match m with
+            | 0 -> 1 
+            | m when m = n -> 1
+            | _ -> (this.GetBinomial (n-1) (m-1)) + (this.GetBinomial (n-1) (m))
 
 
 module TwoPointSix =
@@ -63,7 +58,7 @@ module TwoPointSeven =
             this.test 2 finish n
 
         member this.nextPrime n =
-            let check = this.prime n
+            let check = this.prime (n+1)
             match check with
             | false -> this.nextPrime (n+1)
-            | true -> n
+            | true -> (n+1)

@@ -9,60 +9,58 @@ open FSharpStuff.TwoPointSix
 open FSharpStuff.TwoPointFive
 open FSharpStuff.TwoPointFour
 open FSharpStuff.TwoPointSeven
+open FSharpStuff.TwoPointEight
 
     [<TestFixture>]
     type ``Excercise 2point1`` () =
-        let divisor = new Divisor()
 
         [<Test>] member test.
             ``24 should give true as divisible by 2 and 3`` () =
-                divisor.checkForDivision 24 
+                checkForDivision 24 
                 |> should be True
 
         [<Test>] member test.
             ``27 should give true as divisible by 3`` () =
-                divisor.checkForDivision 27 
+                checkForDivision 27 
                 |> should be True
 
         [<Test>] member test.
             ``30 should give false as divisable by 5`` () =
-                divisor.checkForDivision 30 
+                checkForDivision 30 
                 |> should be False
 
         [<Test>] member test.
             ``29 should give false as not divisible`` () =
-                divisor.checkForDivision 29 
+                checkForDivision 29 
                 |> should be False
 
 
     [<TestFixture>]
     type ``Excercise 2point2`` () =
-        let stringifator = new Stringifator()
 
         [<Test>] member test.
             ``pow 4 1 should return 4`` () =
-                stringifator.power "4" 1
+                power "4" 1
                 |> should equal "4"
 
         [<Test>] member test.
             ``pow 5 3 should return 5 * 5 * 5 `` () =
-                stringifator.power "5" 3
+                power "5" 3
                 |> should equal "5 * 5 * 5"
 
 
 
     [<TestFixture>]
     type ``Excercise 2point3`` () =
-        let checker = new StringCharChecker()
 
         [<Test>] member test.
             ``should be true when char is ith char of the string`` () =
-                checker.isIthChar "abc" 1 'b'
+                isIthChar "abc" 1 'b'
                 |> should be True
 
         [<Test>] member test.
             ``should be false when char is not ith char of the string`` () =
-                checker.isIthChar "abc" 1 'z'
+                isIthChar "abc" 1 'z'
                 |> should be False
 
     [<TestFixture>]
@@ -81,20 +79,18 @@ open FSharpStuff.TwoPointSeven
 
     [<TestFixture>]
     type `` Excercise 2point5`` () =
-        let occurenceCounter = new OccurenceFinder()
 
         [<Test>] member test.
            ``should get 5 for aaaaa string and a char`` () =
-               occurenceCounter.occInString "aaaaa" 'a'
+               occInString "aaaaa" 'a'
                |> should equal 5
 
     [<TestFixture>]
     type `` Excercise 2point4`` () =
-        let occurenceCounter = new ithOccCounter()
 
         [<Test>] member test.
            ``should get 3 for aaaaa string, char a and 2`` () =
-               occurenceCounter.occFromIth "aaaaa" 2 'a'
+               occFromIth "aaaaa" 2 'a'
                |> should equal 3
 
 
@@ -126,3 +122,27 @@ open FSharpStuff.TwoPointSeven
             `` nextPrime should give next prime number to one provided `` () =
                 primer.nextPrime 20
                 |> should equal 23
+
+        [<Test>] member test.
+            `` nextPrime should give next prime number to provided prime `` () =
+                primer.nextPrime 5
+                |> should equal 7
+
+    [<TestFixture>]
+    type `` Excercise 2point8 `` () =
+        let pascal = new Pascal()
+
+        [<Test>] member test.
+            `` pascal should get 6 for n = 4 m = 2 `` () =
+                pascal.GetBinomial 4 2
+                |> should equal 6
+
+        [<Test>] member test.
+            `` pascal should get 2 for n = 2 and m = 1 `` () =
+                pascal.GetBinomial 2 1
+                |> should equal 2
+
+        [<Test>] member test.
+            `` pascal should get 155 117 520 for n = 30 m = 15 `` () =
+                pascal.GetBinomial 30 15
+                |> should equal 155117520
