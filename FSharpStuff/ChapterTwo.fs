@@ -28,37 +28,52 @@ module TwoPointFour =
             occInString (s.Substring(i)) c
 
 module TwoPointEight =
-    type Pascal () =
-        member this.GetBinomial n m =
-            match m with
-            | 0 -> 1 
-            | m when m = n -> 1
-            | _ -> (this.GetBinomial (n-1) (m-1)) + (this.GetBinomial (n-1) (m))
+    let rec GetBinomial n m =
+        match m with
+        | 0 -> 1 
+        | m when m = n -> 1
+        | _ -> (GetBinomial (n-1) (m-1)) + (GetBinomial (n-1) (m))
 
 
 module TwoPointSix =
-    type notDivisionChecker () =
-        member this.notDivisible d n =
-            n % d <> 0
+    let notDivisible d n =
+        n % d <> 0
 
 
 module TwoPointSeven =
     open TwoPointSix
-
-    let checker = new notDivisionChecker ()
-
-    type Primer () =
-        member this.test a b c =
-            match a with
-            |  x when x = b -> checker.notDivisible b c
-            | _ -> (this.test (a+1) b c) && (checker.notDivisible a c)
+      
+    let rec testF a b c =
+        match a with
+        |  x when x = b -> notDivisible b c
+        | _ -> (testF (a+1) b c) && (notDivisible a c)
                 
-        member this.prime n =
-            let finish = (int)(sqrt ((float) n))
-            this.test 2 finish n
+    let prime n =
+        let finish = (int)(sqrt ((float) n))
+        testF 2 finish n
 
-        member this.nextPrime n =
-            let check = this.prime (n+1)
-            match check with
-            | false -> this.nextPrime (n+1)
-            | true -> (n+1)
+    let rec nextPrime n =
+        let check = prime (n+1)
+        match check with
+        | false -> nextPrime (n+1)
+        | true -> (n+1)
+
+
+module TwoPointEleven =
+    let VAT (vatPercent:float32) (value:int) =
+        (float32)(value) * (1.0f+(vatPercent/100.0f))
+
+    let unVAT (vatPercent:float32) (vatedValue:float32) =
+        (int)(vatedValue / (1.0f + (vatPercent/100.0f)))
+    
+
+module TwoPointTwelve =
+    let rec check (func: int -> int) number =
+        match func number with 
+        | 0 -> number
+        | _ -> check func (number+1)
+
+    let min (func: int -> int) =
+        check func 0 
+        
+        
