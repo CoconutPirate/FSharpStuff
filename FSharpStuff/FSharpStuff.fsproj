@@ -55,11 +55,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChapterTwo.fs" />
-    <None Include="Script.fsx" />
+    <Compile Include="ChapterTwoTests.fs" />
     <None Include="packages.config" />
     <Compile Include="FsUnitSample.fs" />
-    <Compile Include="Tests.fs" />
     <None Include="App.config" />
+    <Compile Include="ChapterThree.fs" />
+    <Compile Include="ChapterThreeTests.fs" />
   </ItemGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
