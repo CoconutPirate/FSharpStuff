@@ -65,3 +65,6 @@ packages/
 *.ncrunchproject
 /Powel.Generation.ImportExport.IntegrationTests/*.ncrunchproject
 /Powel.Generation.ImportExport.IntegrationTests/Powel.Generation.ImportExport.IntegrationTests.v2.ncrunchproject
+*.cache
+*.v12.suo
+*.suo
