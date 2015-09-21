@@ -68,3 +68,6 @@ packages/
 *.cache
 *.v12.suo
 *.suo
+*.dll
+*.xml
+*.pdb
