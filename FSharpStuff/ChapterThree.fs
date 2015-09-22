@@ -60,3 +60,15 @@ module ThreePointThree =
 
     let (./.) a b =
         a .*. (inverseMulti b)
+
+module ThreePointFour =
+    type StraightLine = {a: double; b: double}
+
+    let mirrorX y =
+        {a = -y.a; b = -y.b}
+
+    let mirrorY y =
+        {a = -y.a; b = y.b}
+
+    let stringRepresentation y =
+        sprintf "y = %Ax %c %A" y.a (if y.b < 0. then '-' else '+') (abs y.b)

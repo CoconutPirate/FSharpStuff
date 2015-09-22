@@ -5,6 +5,7 @@ open FsUnit
 open FSharpStuff.ThreePointOne
 open FSharpStuff.ThreePointTwo
 open FSharpStuff.ThreePointThree
+open FSharpStuff.ThreePointFour
 
 
  [<TestFixture>]
@@ -140,3 +141,29 @@ open FSharpStuff.ThreePointThree
             `` -17+17i / 1+4i = 3+5i `` () =
                 {real = -17.; imaginary = 17.} ./. {real = 1.; imaginary = 4.}
                 |> should equal {real = 3.; imaginary = 5.}
+
+    type `` Excercise 3point4 `` () =
+        [<Test>] member test.
+            `` y = 2x + 1 mirrored around x axis should equal to y = -2x - 1 `` () =
+                mirrorX {a = 2.; b = 1.}
+                |> should equal {a = -2.; b = -1.}
+
+        [<Test>] member test.
+            `` y = 2x + 1 mirrored around y axis should equal to y = -2x + 1 `` () =
+                mirrorY {a = 2.; b = 1.}
+                |> should equal {a = -2.; b = 1.}
+
+        [<Test>] member test.
+            `` y = 2x + 1 should be represented correctly as a string `` () =
+                stringRepresentation {a = 2.; b = 1.}
+                |> should equal "y = 2.0x + 1.0"
+
+         [<Test>] member test.
+            `` y = 2x - 1 should be represented correctly as a string `` () =
+                stringRepresentation {a = 2.; b = -1.}
+                |> should equal "y = 2.0x - 1.0"
+
+         [<Test>] member test.
+            `` y = -2x - 1 should be represented correctly as a string `` () =
+                stringRepresentation {a = -2.; b = -1.}
+                |> should equal "y = -2.0x - 1.0"

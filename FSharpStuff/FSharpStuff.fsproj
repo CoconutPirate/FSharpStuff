@@ -61,6 +61,8 @@
     <None Include="App.config" />
     <Compile Include="ChapterThree.fs" />
     <Compile Include="ChapterThreeTests.fs" />
+    <Compile Include="ChapterFour.fs" />
+    <Compile Include="ChapterFourTests.fs" />
   </ItemGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
