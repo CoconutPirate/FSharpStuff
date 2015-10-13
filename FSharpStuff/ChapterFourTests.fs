@@ -6,6 +6,7 @@ open FSharpStuff.FourPointOneAndTwo
 open FSharpStuff.FourPointThree
 open FSharpStuff.FourPointFour
 open FSharpStuff.FourPointFive
+open FSharpStuff.FourPointSix
 
 
     [<TestFixture>]
@@ -74,4 +75,29 @@ open FSharpStuff.FourPointFive
                     rmodd [1;2;3;4;5]
                     |> should equal [1;3;5]
 
+            [<Test>] member test.
+                `` rmodd [1;2;3;4] should give [1;3] `` () =
+                    rmodd [1;2;3;4]
+                    |> should equal [1;3]
+
+        type `` Excercise 4point6 `` () =
+            [<Test>] member test.
+                `` removeEven [] should give [] `` () =
+                    removeEven []
+                    |> should equal []
+
+            [<Test>] member test.
+                `` removeEven should not remove odd numbers `` () =
+                    removeEven [3;5;7;9]
+                    |> should equal [3;5;7;9]
+
+            [<Test>] member test.
+                `` removeEven should remove only even numbers `` () =
+                    removeEven [2;3;4;5]
+                    |> should equal [3;5]
+
+            [<Test>] member test.
+                `` removeEven for list of even ints should give [] `` () =
+                    removeEven [2;4;6;8;10]
+                    |> should equal []
 

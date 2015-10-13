@@ -24,4 +24,11 @@ module FourPointFive =
         match list with
         | [] -> []
         | [x] -> [x]
-        | x0::x1::xs -> rmodd (x0 :: xs)
+        | x0::x1::xs -> x0 :: rmodd xs
+
+module FourPointSix =
+    let isOdd n =
+        n % 2 <> 0
+    let removeEven a =
+        a
+        |> List.filter isOdd
