@@ -2,11 +2,7 @@
 
 open NUnit.Framework
 open FsUnit
-open FSharpStuff.FourPointOneAndTwo
-open FSharpStuff.FourPointThree
-open FSharpStuff.FourPointFour
-open FSharpStuff.FourPointFive
-open FSharpStuff.FourPointSix
+open FSharpStuff.ChapterFour
 
 
     [<TestFixture>]
@@ -101,3 +97,19 @@ open FSharpStuff.FourPointSix
                     removeEven [2;4;6;8;10]
                     |> should equal []
 
+
+        type `` Excercise 4point7 `` () =
+            [<Test>] member test.
+                ``multiplicity [1;2;3] 4 should return 0 `` () =
+                    multiplicity 4 [1;2;3]
+                    |> should equal 0
+
+            [<Test>] member test.
+                ``multiplicity [1;2;3] 1 should return 1 `` () =
+                    multiplicity 1 [1;2;3]
+                    |> should equal 1
+
+            [<Test>] member test.
+                ``multiplicity [1;1;1;1;1;1;1] 1 should return 7 `` () =
+                    multiplicity 1 [1;1;1;1;1;1;1]
+                    |> should equal 7

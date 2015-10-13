@@ -2,16 +2,7 @@
 
 open NUnit.Framework
 open FsUnit
-open FSharpStuff.TwoPointOne
-open FSharpStuff.TwoPointTwo
-open FSharpStuff.TwoPointThree
-open FSharpStuff.TwoPointSix
-open FSharpStuff.TwoPointFive
-open FSharpStuff.TwoPointFour
-open FSharpStuff.TwoPointSeven
-open FSharpStuff.TwoPointEight
-open FSharpStuff.TwoPointEleven
-open FSharpStuff.TwoPointTwelve
+open FSharpStuff.ChaperTwo
 
     [<TestFixture>]
     type ``Excercise 2point1`` () =

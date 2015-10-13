@@ -1,6 +1,6 @@
 ﻿namespace FSharpStuff
 
-module ThreePointOne =
+module ChapterThree =
     type RecordDate = {hour: int; minute: int; f: string}
 
     let checkForF hour f =
@@ -16,8 +16,6 @@ module ThreePointOne =
         let secondHour = checkForF secondHours secondF
         (firstHour, firstMinutes) > (secondHour, secondMinutes)
  
-module ThreePointTwo =
-    
     let rec matchShillings (pound1, shilling1, pence1) (pound2, shilling2, pence2) =
         match shilling1+shilling2 with
         | x when x >= 20 -> matchShillings (pound1+1, shilling1-20, pence1) (pound2, shilling2, pence2)
@@ -39,7 +37,6 @@ module ThreePointTwo =
         (0,0,pences)+.(0,0,0)        
 
 
-module ThreePointThree =
     type Complex = {real: double; imaginary: double}
 
     let (.+.) a b  =
@@ -61,7 +58,6 @@ module ThreePointThree =
     let (./.) a b =
         a .*. (inverseMulti b)
 
-module ThreePointFour =
     type StraightLine = {a: double; b: double}
 
     let mirrorX y =

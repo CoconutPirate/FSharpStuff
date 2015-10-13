@@ -2,10 +2,7 @@
 
 open NUnit.Framework
 open FsUnit
-open FSharpStuff.ThreePointOne
-open FSharpStuff.ThreePointTwo
-open FSharpStuff.ThreePointThree
-open FSharpStuff.ThreePointFour
+open FSharpStuff.ChapterThree
 
 
  [<TestFixture>]
