@@ -6,7 +6,7 @@ open FSharpStuff.ChapterFour
 
 
     [<TestFixture>]
-        type ``Excercise 4point1`` () =
+        type ``Exercise 4point1`` () =
             [<Test>] member test.
                 `` upto 1 gives 1 `` () =
                     upto 1
@@ -17,7 +17,7 @@ open FSharpStuff.ChapterFour
                     upto 10
                     |> should equal [1;2;3;4;5;6;7;8;9;10]
 
-        type ``Excercise 4point2`` () =
+        type ``Exercise 4point2`` () =
             [<Test>] member test.
                 `` downto 1 gives 1 `` () =
                     downto1 1
@@ -28,7 +28,7 @@ open FSharpStuff.ChapterFour
                     downto1 10
                     |> should equal [10;9;8;7;6;5;4;3;2;1]
 
-        type `` Excercise 4point3 `` () =
+        type `` Exercise 4point3 `` () =
             [<Test>] member test.
                 ``evenN 6 should give [2;4;6] `` () =
                     evenN 6
@@ -39,7 +39,7 @@ open FSharpStuff.ChapterFour
                     evenN 5
                     |> should equal [2;4]
 
-        type `` Excercise 4point4 `` () =
+        type `` Exercise 4point4 `` () =
             [<Test>] member test.
                 `` altsum for [] gives 0 `` () =
                     altsum []
@@ -55,7 +55,7 @@ open FSharpStuff.ChapterFour
                     altsum [2;-1;3]
                     |> should equal 6
             
-        type `` Excercise 4point5 `` () =
+        type `` Exercise 4point5 `` () =
             [<Test>] member test.
                 `` rmodd [] should give [] `` () =
                     rmodd []
@@ -76,7 +76,7 @@ open FSharpStuff.ChapterFour
                     rmodd [1;2;3;4]
                     |> should equal [1;3]
 
-        type `` Excercise 4point6 `` () =
+        type `` Exercise 4point6 `` () =
             [<Test>] member test.
                 `` removeEven [] should give [] `` () =
                     removeEven []
@@ -98,7 +98,7 @@ open FSharpStuff.ChapterFour
                     |> should equal []
 
 
-        type `` Excercise 4point7 `` () =
+        type `` Exercise 4point7 `` () =
             [<Test>] member test.
                 ``multiplicity [1;2;3] 4 should return 0 `` () =
                     multiplicity 4 [1;2;3]
@@ -113,3 +113,81 @@ open FSharpStuff.ChapterFour
                 ``multiplicity [1;1;1;1;1;1;1] 1 should return 7 `` () =
                     multiplicity 1 [1;1;1;1;1;1;1]
                     |> should equal 7
+
+            [<Test>] member test.
+                ``multiplicity [1;1;1;1;1;1;2] 1 should return 6 `` () =
+                    multiplicity 1 [1;1;1;1;1;1;2]
+                    |> should equal 6
+
+        type `` Exercise 4poin8 `` () =
+            [<Test>] member test.
+                `` split [] should give ([],[]) `` () =
+                    split [] 
+                    |> should equal ([],[])
+
+                [<Test>] member test.
+                `` split [1] should give ([1],[]) `` () =
+                    split [1] 
+                    |> should equal ([1],[])
+
+                [<Test>] member test.
+                `` split [1;2] should give ([1],[2]) `` () =
+                    split [1;2] 
+                    |> should equal ([1],[2])
+
+                [<Test>] member test.
+                `` split [1;2;3] should give ([1;3],[2]) `` () =
+                    split [1;2;3] 
+                    |> should equal ([1;3],[2])
+
+                [<Test>] member test.
+                `` split [1;2;3;4] should give ([1;3],[2;4]) `` () =
+                    split [1;2;3;4] 
+                    |> should equal ([1;3],[2;4])
+
+        type `` Exercise 4point9 `` () =
+            [<Test>] member test.
+                `` zip ([],[]) should give [] `` () =
+                    zip ([],[])
+                    |> should equal []
+
+            [<Test>] member test.
+                `` zip ([1],[2]) should give [1;2] `` () =
+                    zip ([1],[2])
+                    |> should equal [1;2]
+
+            [<Test>] member test.
+                `` zip ([1;3],[2;4]) should give [1;2;3;4] `` () =
+                    zip ([1;3],[2;4])
+                    |> should equal [1;2;3;4]
+
+        type `` Exercise 4point10 `` () =
+            [<Test>] member test.
+                `` [] is a prefix of [] `` () =
+                    prefix [] []
+                    |> should be True
+
+            [<Test>] member test.
+                `` [] is a prefix of [1;2] `` () =
+                    prefix [] [1;2]
+                    |> should be True
+
+            [<Test>] member test.
+                `` [1] is a prefix of [1;2] `` () =
+                    prefix [1] [1;2]
+                    |> should be True
+
+            [<Test>] member test.
+                `` [1;2] is a prefix of [1;2] `` () =
+                    prefix [1;2] [1;2]
+                    |> should be True
+
+            [<Test>] member test.
+                `` [1;2] is not a prefix of [1] `` () =
+                    prefix [1;2] [1]
+                    |> should be False
+
+            [<Test>] member test.
+                `` [1;2] is not a prefix of [3;4] `` () =
+                    prefix [1;2] [3;4]
+                    |> should be False

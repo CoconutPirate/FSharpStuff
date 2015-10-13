@@ -5,7 +5,7 @@ open FsUnit
 open FSharpStuff.ChaperTwo
 
     [<TestFixture>]
-    type ``Excercise 2point1`` () =
+    type ``Exercise 2point1`` () =
 
         [<Test>] member test.
             ``24 should give true as divisible by 2 and 3`` () =
@@ -29,7 +29,7 @@ open FSharpStuff.ChaperTwo
 
 
     [<TestFixture>]
-    type ``Excercise 2point2`` () =
+    type ``Exercise 2point2`` () =
 
         [<Test>] member test.
             ``pow 4 1 should return 4`` () =
@@ -44,7 +44,7 @@ open FSharpStuff.ChaperTwo
 
 
     [<TestFixture>]
-    type ``Excercise 2point3`` () =
+    type ``Exercise 2point3`` () =
 
         [<Test>] member test.
             ``should be true when char is ith char of the string`` () =
@@ -57,7 +57,7 @@ open FSharpStuff.ChaperTwo
                 |> should be False
 
     [<TestFixture>]
-    type ``Excercise 2point6`` () =
+    type ``Exercise 2point6`` () =
 
         [<Test>] member test.
             ``divisible is false`` () =
@@ -70,7 +70,7 @@ open FSharpStuff.ChaperTwo
                 |> should be True
 
     [<TestFixture>]
-    type `` Excercise 2point5`` () =
+    type `` Exercise 2point5`` () =
 
         [<Test>] member test.
            ``should get 5 for aaaaa string and a char`` () =
@@ -78,7 +78,7 @@ open FSharpStuff.ChaperTwo
                |> should equal 5
 
     [<TestFixture>]
-    type `` Excercise 2point4`` () =
+    type `` Exercise 2point4`` () =
 
         [<Test>] member test.
            ``should get 3 for aaaaa string, char a and 2`` () =
@@ -87,7 +87,7 @@ open FSharpStuff.ChaperTwo
 
 
     [<TestFixture>]
-    type `` Excercise 2point7 `` () =
+    type `` Exercise 2point7 `` () =
 
         [<Test>] member test.
             `` test should return true for 1, 4 and 5 `` () =
@@ -120,7 +120,7 @@ open FSharpStuff.ChaperTwo
                 |> should equal 7
 
     [<TestFixture>]
-    type `` Excercise 2point8 `` () =
+    type `` Exercise 2point8 `` () =
 
         [<Test>] member test.
             `` pascal should get 6 for n = 4 m = 2 `` () =
@@ -138,7 +138,7 @@ open FSharpStuff.ChaperTwo
                 |> should equal 155117520
 
     [<TestFixture>]
-    type `` Excercise 2point11 `` () =
+    type `` Exercise 2point11 `` () =
         
         [<Test>] member test.
             `` 100 with 23 vat should give 123 `` () =
@@ -151,20 +151,20 @@ open FSharpStuff.ChaperTwo
                 |> should equal 100
 
 
-[<TestFixture>]
-type `` EXcercisee 2point12 `` () =
+    [<TestFixture>]
+    type `` Exercisee 2point12 `` () =
 
-    [<Test>] member test.
-        `` y = x should give 0 `` () =
-            min (fun x-> x)
-            |> should equal 0
+        [<Test>] member test.
+            `` y = x should give 0 `` () =
+                min (fun x-> x)
+                |> should equal 0
 
-    [<Test>] member test.
-        `` y = x - 5 should give 5 `` () =
-            min (fun x -> x - 5)
-            |> should equal 5
+        [<Test>] member test.
+            `` y = x - 5 should give 5 `` () =
+                min (fun x -> x - 5)
+                |> should equal 5
 
-    [<Test>] member test.
-        `` 2x^2 - 5x + 3 should give 1 `` () =
-            min (fun x-> 2*x*x - 5*x + 3)
-            |> should equal 1
+        [<Test>] member test.
+            `` 2x^2 - 5x + 3 should give 1 `` () =
+                min (fun x-> 2*x*x - 5*x + 3)
+                |> should equal 1

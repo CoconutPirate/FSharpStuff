@@ -6,7 +6,7 @@ open FSharpStuff.ChapterThree
 
 
  [<TestFixture>]
-    type ``Excercise 3point1`` () =
+    type ``Exercise 3point1`` () =
 
         [<Test>] member test.
             ``tripe: 11:30 AM should be treated as later than 10:30 AM `` () =
@@ -68,7 +68,7 @@ open FSharpStuff.ChapterThree
                 { hour = 10 ; minute = 30; f = "PM"} .>. {hour = 11 ; minute = 30 ; f = "AM"}
                 |> should be True
 
-    type ``Excercise 3point2`` () =
+    type ``Exercise 3point2`` () =
         [<Test>] member test.
             `` 1 pound + 1 shilling + 1 pence = 1f1s1p `` () =
                 (1,0,0)+.(0,1,0)+.(0,0,1)
@@ -108,7 +108,7 @@ open FSharpStuff.ChapterThree
             `` (4,1,4) - (2, 11, 8) = (1,9,8) `` () =
                 (4,1,4) -. (2,11,8)
                 |> should equal (1,9,8)
-    type `` Excercise 3point3`` () =
+    type `` Exercise 3point3`` () =
         [<Test>] member test.
             `` 3+5i + 1+4i = 4+9i `` () =
                 {real = 3.; imaginary = 5.} .+. {real = 1.; imaginary = 4.}
@@ -139,7 +139,7 @@ open FSharpStuff.ChapterThree
                 {real = -17.; imaginary = 17.} ./. {real = 1.; imaginary = 4.}
                 |> should equal {real = 3.; imaginary = 5.}
 
-    type `` Excercise 3point4 `` () =
+    type `` Exercise 3point4 `` () =
         [<Test>] member test.
             `` y = 2x + 1 mirrored around x axis should equal to y = -2x - 1 `` () =
                 mirrorX {a = 2.; b = 1.}

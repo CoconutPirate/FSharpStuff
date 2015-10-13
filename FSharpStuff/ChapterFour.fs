@@ -37,3 +37,14 @@ module ChapterFour =
         match xs with
         | [] -> 0
         | x0 :: x1 -> (if x0 = x then 1 else 0) + (multiplicity x x1)
+
+    let split list =
+        ([],[]) // todo: implement
+
+    let zip (list1, list2) =
+        [] // todo: implement
+
+    let prefix list1 list2 =
+        false // todo: implement
+
+    
