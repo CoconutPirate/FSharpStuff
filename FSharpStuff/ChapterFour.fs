@@ -41,8 +41,11 @@ module ChapterFour =
     let split list =
         ([],[]) // todo: implement
 
-    let zip (list1, list2) =
-        [] // todo: implement
+    let rec zip (list1, list2) =
+        match (list1, list2) with
+        | (x1::xs1, x2::xs2) when (xs1 <> [] && xs2 <> [] ) -> [x1]@[x2]@zip(xs1,xs2)
+        | (x1::xs1, x2::xs2) -> ([x1] @ [x2])
+        | _ -> []
 
     let prefix list1 list2 =
         false // todo: implement
