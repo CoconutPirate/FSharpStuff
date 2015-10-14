@@ -55,4 +55,22 @@ module ChapterFour =
         | list1 when list1.Length > list2.Length -> false
         | _ -> list1 = [for i in 0 .. list1.Length-1 do yield list2.Item i]
 
+    let rec count (list: int list) number =
+        match number with
+        | number when list.Head < number -> count list.Tail number
+        | number when list.Head = number -> 1 + count list.Tail number
+        | number when list.Head > number -> 0
+        | _ -> 0
+
+    let rec insert (list: int list) number =
+        match list with
+        | [] -> [number]
+        | list when list.Head < number -> list.Head :: insert list.Tail number
+        | list when list.Head = number -> number :: list
+        | list when list.Head > number -> number :: list
+        | _ -> list
+
+    let intersect ((list1: int list), (list2: int list)) =
+        [1]
+
     

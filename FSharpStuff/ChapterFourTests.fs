@@ -191,3 +191,54 @@ open FSharpStuff.ChapterFour
                 `` [1;2] is not a prefix of [3;4] `` () =
                     prefix [1;2] [3;4]
                     |> should be False
+
+        type `` Exercise 4point11 `` () =
+            [<Test>] member test.
+                `` count xs x should give 0 for xs [2;2;3;4;5] 1 `` () =
+                    count [2;2;3;4;5] 1
+                    |> should equal 0
+
+            [<Test>] member test.
+                `` count [0;1;1;1;2] 1 should give 3 `` () =
+                    count [0;1;1;1;2] 1
+                    |> should equal 3
+
+            [<Test>][<Timeout 300>] member test.
+                `` count should terminate quickly `` () =
+                    count [1..1000000] 1
+                    |> should equal 1
+
+            [<Test>] member test.
+                `` insert [] 1 should give [1] `` () =
+                    insert [] 1
+                    |> should equal [1]
+
+            [<Test>] member test.
+                `` insert [1;2] 3 should give [1;2;3] `` () =
+                    insert [1;2] 3
+                    |> should equal [1;2;3]
+
+             [<Test>] member test.
+                `` insert [1;2] 0 should give [0;1;2] `` () =
+                    insert [1;2] 0
+                    |> should equal [0;1;2]
+
+             [<Test>] member test.
+                `` insert [1;3] 2 should give [1;2;3] `` () =
+                    insert [1;3] 2
+                    |> should equal [1;2;3]
+
+             [<Test>] member test.
+                `` insert [1;2;3] 2 should give [1;2;2;3] `` () =
+                    insert [1;2;3] 2
+                    |> should equal [1;2;2;3]
+
+            [<Test>] member test.
+                `` intersect ([1;1;1;2;2],[1;1;2;4]) = [1;1;2] `` () =
+                    intersect ([1;1;1;2;2],[1;1;2;4])
+                    |> should equal [1;1;2]
+
+            [<Test>] member test.
+                `` intersect ([1;2;2], [3;3;4)] = [] `` () =
+                    intersect ([1;2;2], [3;3;4])
+                    |> should equal ([]:>(int list))
