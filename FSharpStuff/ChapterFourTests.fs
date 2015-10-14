@@ -128,7 +128,7 @@ open FSharpStuff.ChapterFour
                 [<Test>] member test.
                 `` split [1] should give ([1],[]) `` () =
                     split [1] 
-                    |> should equal ([1],[])
+                    |> should equal ([1],[]:>(int list))
 
                 [<Test>] member test.
                 `` split [1;2] should give ([1],[2]) `` () =
