@@ -18,13 +18,13 @@ module ChapterThree =
  
     let rec matchShillings (pound1, shilling1, pence1) (pound2, shilling2, pence2) =
         match shilling1+shilling2 with
-        | x when x >= 20 -> matchShillings (pound1+1, shilling1-20, pence1) (pound2, shilling2, pence2)
+        | x when x >= 20 -> ((pound1+1, shilling1-20, pence1),(pound2, shilling2, pence2)) ||> matchShillings
         | _ -> (pound1+pound2, shilling1+shilling2, pence1+pence2)
 
     let rec (+.) (pound1, shilling1, pence1) (pound2, shilling2, pence2) =
         match pence1 + pence2 with
         | x when x >= 12 -> (pound1, shilling1+1, pence1-12) +. (pound2, shilling2, pence2)
-        | _ -> matchShillings (pound1, shilling1, pence1) (pound2, shilling2, pence2)
+        | _ -> ((pound1, shilling1, pence1), (pound2, shilling2, pence2)) ||> matchShillings
         
     let pencify (pound, shilling, pence) =
         pound * 20 * 12 + shilling * 12 + pence

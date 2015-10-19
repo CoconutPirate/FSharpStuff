@@ -8,16 +8,14 @@ module ChaperTwo =
     
     let rec power s n =
         match n with
-        | 1 -> sprintf "%s" s
+        | 1 -> s
         | _ -> (sprintf "%s * " s) + (power s (n-1))
             
     let isIthChar (s:string) (i:int) (c:char) =
         s.Chars i = c
-
     
     let occInString (s: string) (c:char) =
             s.Count(fun x -> x = c) 
-
     
     let occFromIth (s: string) (i: int) (c: char) =
             occInString (s.Substring(i)) c
@@ -26,7 +24,9 @@ module ChaperTwo =
         match m with
         | 0 -> 1 
         | m when m = n -> 1
-        | _ -> (GetBinomial (n-1) (m-1)) + (GetBinomial (n-1) (m))
+        | _ -> 
+                let getBinomial = GetBinomial (n-1)
+                (getBinomial (m-1)) + (getBinomial (m))
 
     let notDivisible d n =
         n % d <> 0

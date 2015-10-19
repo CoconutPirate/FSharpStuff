@@ -7,25 +7,21 @@ module ChapterFour =
     let downto1 n =
         [n .. -1 .. 1]
         
-
     let isEven n =
         n % 2 = 0
     let evenN n =
         [1..n]
         |> List.filter isEven
 
-
     let rec altsum = function
         | [] -> 0
         | x0::x1 -> x0 - altsum x1
-
 
     let rec rmodd list =
         match list with
         | [] -> []
         | [x] -> [x]
         | x0::x1::xs -> x0 :: rmodd xs
-
 
     let isOdd n =
         n % 2 <> 0
@@ -53,7 +49,7 @@ module ChapterFour =
     let prefix (list1: int list) (list2: int list) =
         match list1 with
         | list1 when list1.Length > list2.Length -> false
-        | _ -> list1 = [for i in 0 .. list1.Length-1 do yield list2.Item i]
+        | _ -> list1 = ((Seq.truncate (List.length list1) list2) |> List.ofSeq)
 
     let rec count (list: int list) number =
         match number with

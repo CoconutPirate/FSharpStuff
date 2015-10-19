@@ -133,9 +133,9 @@ open FSharpStuff.ChaperTwo
                 |> should equal 2
 
         [<Test>] member test.
-            `` pascal should get 155 117 520 for n = 30 m = 15 `` () =
-                GetBinomial 30 15
-                |> should equal 155117520
+            `` pascal should get 3 268 760 for n = 25 m = 15 `` () =
+                GetBinomial 25 15
+                |> should equal 3268760
 
     [<TestFixture>]
     type `` Exercise 2point11 `` () =
