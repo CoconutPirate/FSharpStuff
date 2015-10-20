@@ -242,3 +242,8 @@ open FSharpStuff.ChapterFour
                 `` intersect ([1;2;2], [3;3;4)] = [] `` () =
                     intersect ([1;2;2], [3;3;4])
                     |> should equal ([]:>(int list))
+
+            [<Test>] member test.
+                `` plus ([1;1;2],[1;2;4]) should give [1;1;1;2;2;4] `` () =
+                    plus ([1;1;2],[1;2;4])
+                    |> should equal [1;1;1;2;2;4] 

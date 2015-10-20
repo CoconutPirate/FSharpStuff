@@ -74,4 +74,7 @@ module ChapterFour =
         | x when List.head x < List.head list2 -> intersect (List.tail list1, list2)
         | _ -> []
 
+    let plus ((list1: int list), (list2: int list)) =
+        List.append list1 list2
+        |> List.sort
     
