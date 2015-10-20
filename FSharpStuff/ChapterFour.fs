@@ -66,7 +66,12 @@ module ChapterFour =
         | list when list.Head > number -> number :: list
         | _ -> list
 
-    let intersect ((list1: int list), (list2: int list)) =
-        [1]
+    let rec intersect ((list1: int list), (list2: int list)) =
+        match list1 with
+        | [] -> []
+        | x when List.head x > List.head list2 -> intersect (list1, (List.tail list2))  
+        | x when List.head x = List.head list2 -> [List.head x] @ intersect(List.tail list1, List.tail list2) 
+        | x when List.head x < List.head list2 -> intersect (List.tail list1, list2)
+        | _ -> []
 
     
