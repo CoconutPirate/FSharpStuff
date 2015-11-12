@@ -247,3 +247,55 @@ open FSharpStuff.ChapterFour
                 `` plus ([1;1;2],[1;2;4]) should give [1;1;1;2;2;4] `` () =
                     plus ([1;1;2],[1;2;4])
                     |> should equal [1;1;1;2;2;4] 
+
+            [<Test>] member test.
+                `` minus ([1;1;1;2;2],[1;1;2;3]) = [1;2] `` () =
+                    minus ([1;1;1;2;2],[1;1;2;3])
+                    |> should equal [1;2]
+
+            [<Test>] member test.
+                `` minus ([1;1;2;3],[1;1;1;2;2]) = [3] `` () =
+                    minus ([1;1;2;3],[1;1;1;2;2])
+                    |> should equal [3]
+
+        type `` Exercise 4point12 `` () =
+            [<Test>] member test.
+                `` sum (x>0) [-1;1;-2;2] should give 3 `` () =
+                    sum (fun x->x>0) [-1;1;-2;2]
+                    |> should equal 3
+
+            [<Test>] member test.
+                `` sum (x%2=0) [1;2;3;4] should give 6 `` () =
+                    sum (fun x->x%2=0) [1;2;3;4]
+                    |> should equal 6
+
+        type `` Exercise 4point13 `` () =
+            [<Test>] member test.
+                `` findMin [1;2;3;4] should give 1 `` () =
+                    findMin [1;2;3;4]
+                    |> should equal 1
+
+            [<Test>] member test.
+                `` findMin [4;2;6;4;1;0;2;3] should give 1 `` () =
+                    findMin [4;2;6;4;1;0;2;3]
+                    |> should equal 0
+
+            [<Test>] member test.
+                `` deleteElement 3 [1;2;3] shouldGive [1;2] `` () =
+                    deleteElement 3 [1;2;3]
+                    |> should equal [1;2]
+
+            [<Test>] member test.
+                `` deleteElement 2 [1;2;3] shouldGive [1;3] `` () =
+                    deleteElement 2 [1;2;3]
+                    |> should equal [1;3]
+
+            [<Test>] member test.
+                `` deleteElement 1 [1;2;3] shouldGive [2;3] `` () =
+                    deleteElement 1 [1;2;3]
+                    |> should equal [2;3]
+
+            [<Test>] member test.
+                `` sortWAsc [4;2;1;1;3;2;4;5] shouldGive [1;1;2;2;3;4;4;5] `` () =
+                    sortWAsc [4;2;1;1;3;2;4;5]
+                    |> should equal [1;1;2;2;3;4;4;5]

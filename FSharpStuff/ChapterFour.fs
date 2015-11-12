@@ -78,3 +78,27 @@ module ChapterFour =
         List.append list1 list2
         |> List.sort
     
+    let minus ((list1: int list), (list2: int list)) =
+        list1
+
+    let sum (predicate: int->bool) (list: int list) =
+        List.filter predicate list
+        |> List.sum
+
+    let rec findMin list =
+        match list with
+        | [] -> 0
+        | x::xs when xs = [] -> x
+        | x::xs -> if List.head xs > x then findMin ([x] @ (List.tail xs)) else findMin xs
+
+    let rec deleteElement (n: int) (list: int list) =
+        match list with
+        | x::xs -> if x = n then xs else [x] @ (deleteElement n xs)
+        | _ -> []
+
+    let helper x1 x2 =
+        let result = if x1 <= x2 then [x1]@[x2] else [x2]@[x1]
+        result
+
+    let rec sortWAsc a =
+       List.sort a //todo not what excercise intended
