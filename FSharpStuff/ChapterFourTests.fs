@@ -5,7 +5,7 @@ open FsUnit
 open FSharpStuff.ChapterFour
 
 
-    [<TestFixture>]
+        [<TestFixture>]
         type ``Exercise 4point1`` () =
             [<Test>] member test.
                 `` upto 1 gives 1 `` () =
@@ -17,6 +17,7 @@ open FSharpStuff.ChapterFour
                     upto 10
                     |> should equal [1;2;3;4;5;6;7;8;9;10]
 
+        [<TestFixture>]
         type ``Exercise 4point2`` () =
             [<Test>] member test.
                 `` downto 1 gives 1 `` () =
@@ -28,6 +29,7 @@ open FSharpStuff.ChapterFour
                     downto1 10
                     |> should equal [10;9;8;7;6;5;4;3;2;1]
 
+        [<TestFixture>]
         type `` Exercise 4point3 `` () =
             [<Test>] member test.
                 ``evenN 6 should give [2;4;6] `` () =
@@ -39,6 +41,7 @@ open FSharpStuff.ChapterFour
                     evenN 5
                     |> should equal [2;4]
 
+        [<TestFixture>]
         type `` Exercise 4point4 `` () =
             [<Test>] member test.
                 `` altsum for [] gives 0 `` () =
@@ -54,7 +57,8 @@ open FSharpStuff.ChapterFour
                 `` altsum for [2;-1;3] gives 6 `` () =
                     altsum [2;-1;3]
                     |> should equal 6
-            
+
+        [<TestFixture>]
         type `` Exercise 4point5 `` () =
             [<Test>] member test.
                 `` rmodd [] should give [] `` () =
@@ -76,6 +80,7 @@ open FSharpStuff.ChapterFour
                     rmodd [1;2;3;4]
                     |> should equal [1;3]
 
+        [<TestFixture>]
         type `` Exercise 4point6 `` () =
             [<Test>] member test.
                 `` removeEven [] should give [] `` () =
@@ -97,7 +102,7 @@ open FSharpStuff.ChapterFour
                     removeEven [2;4;6;8;10]
                     |> should equal []
 
-
+        [<TestFixture>]
         type `` Exercise 4point7 `` () =
             [<Test>] member test.
                 ``multiplicity [1;2;3] 4 should return 0 `` () =
@@ -119,6 +124,7 @@ open FSharpStuff.ChapterFour
                     multiplicity 1 [1;1;1;1;1;1;2]
                     |> should equal 6
 
+        [<TestFixture>]
         type `` Exercise 4poin8 `` () =
             [<Test>] member test.
                 `` split [] should give ([],[]) `` () =
@@ -145,6 +151,7 @@ open FSharpStuff.ChapterFour
                     split [1;2;3;4] 
                     |> should equal ([1;3],[2;4])
 
+        [<TestFixture>]
         type `` Exercise 4point9 `` () =
             [<Test>] member test.
                 `` zip ([],[]) should give [] `` () =
@@ -161,6 +168,7 @@ open FSharpStuff.ChapterFour
                     zip ([1;3],[2;4])
                     |> should equal [1;2;3;4]
 
+        [<TestFixture>]
         type `` Exercise 4point10 `` () =
             [<Test>] member test.
                 `` [] is a prefix of [] `` () =
@@ -192,6 +200,7 @@ open FSharpStuff.ChapterFour
                     prefix [1;2] [3;4]
                     |> should be False
 
+        [<TestFixture>]
         type `` Exercise 4point11 `` () =
             [<Test>] member test.
                 `` count xs x should give 0 for xs [2;2;3;4;5] 1 `` () =
@@ -258,6 +267,7 @@ open FSharpStuff.ChapterFour
                     minus ([1;1;2;3],[1;1;1;2;2])
                     |> should equal [3]
 
+        [<TestFixture>]
         type `` Exercise 4point12 `` () =
             [<Test>] member test.
                 `` sum (x>0) [-1;1;-2;2] should give 3 `` () =
@@ -269,6 +279,7 @@ open FSharpStuff.ChapterFour
                     sum (fun x->x%2=0) [1;2;3;4]
                     |> should equal 6
 
+        [<TestFixture>]
         type `` Exercise 4point13 `` () =
             [<Test>] member test.
                 `` findMin [1;2;3;4] should give 1 `` () =
@@ -299,3 +310,27 @@ open FSharpStuff.ChapterFour
                 `` sortWAsc [4;2;1;1;3;2;4;5] shouldGive [1;1;2;2;3;4;4;5] `` () =
                     sortWAsc [4;2;1;1;3;2;4;5]
                     |> should equal [1;1;2;2;3;4;4;5]
+
+        [<TestFixture>]
+        type `` Exercise 4point14 `` () =
+            [<Test>] member test.
+                `` findMin [2;1;3] should give Some 1 `` () =
+                    findMinOption [2;1;3]
+                    |> should equal (Some 1)
+
+            [<Test>] member test.
+                `` findMin [1;1;1] should give None `` () =
+                    findMinOption [1;1;1]
+                    |> should equal None
+
+        [<TestFixture>]
+        type `` Exercise 4point15 `` () =
+            [<Test>] member test.
+                `` revrev [[1;2];[3;4;5]] should give [[5;4;3];[2;1]] `` () =
+                    revrev [[1;2];[3;4;5]]
+                    |> should equal [[5;4;3];[2;1]]
+
+            [<Test>] member test.
+                `` revrev [[1;2];[3;4;5];[6];[7;8;9;10]] should give [[10;9;8;7];[6];[5;4;3];[2;1]] `` () =
+                    revrev [[1;2];[3;4;5];[6];[7;8;9;10]]
+                    |> should equal [[10;9;8;7];[6];[5;4;3];[2;1]]

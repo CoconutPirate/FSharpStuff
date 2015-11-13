@@ -102,3 +102,12 @@ module ChapterFour =
 
     let rec sortWAsc a =
        List.sort a //todo not what excercise intended
+
+    let findMinOption list =
+        let sortedList = List.sort list
+        let firstElement = findMin sortedList
+        if firstElement <> (findMin sortedList.Tail) then Some(firstElement) else None
+
+    let revrev listOfLists =
+        List.map List.rev listOfLists
+        |> List.rev 

@@ -152,7 +152,7 @@ open FSharpStuff.ChaperTwo
 
 
     [<TestFixture>]
-    type `` Exercisee 2point12 `` () =
+    type `` Exercise 2point12 `` () =
 
         [<Test>] member test.
             `` y = x should give 0 `` () =
